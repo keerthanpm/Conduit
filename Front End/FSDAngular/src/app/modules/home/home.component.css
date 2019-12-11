@@ -1,0 +1,58 @@
+.jumbotron{
+    background-color: #5cb85c;
+    margin:0;
+    width:100%;
+    height:200px;
+}
+.content{
+    color:white;
+    text-align: center;
+    font-family: "titillium web", sans-serif;
+    
+}
+.jt{
+    font-size: 56px;
+    font-weight: 400;
+}
+.jc{
+    font-size: 36;
+    font-weight: 300;
+}
+
+.feed{
+    padding-left:10%;
+    padding-right:35%;
+}
+a:link, a:visited {
+   
+    color:#5cb85c ;
+    font-family: "titillium web", sans-serif;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: 400;
+    display: inline-block;
+  }
+   /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .feed{
+        display:inline;
+    }
+   
+    }
+    
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (max-width: 700px) {
+        .feed{
+            display:inline;
+        }
+    }
+    
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (max-width: 800px) {
+        .feed{
+            display:inline;
+        }
+     
+     
+    } 
+  

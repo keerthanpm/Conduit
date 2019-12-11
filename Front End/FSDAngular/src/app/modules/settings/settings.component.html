@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <main>
+        <div>
+            <h1>Settings</h1>
+            <p>{{errorstring}}</p>
+        </div>
+        <div>
+            <form [formGroup]="settingsForm" (ngSubmit)="onsettings(settingsForm.value)">
+
+                <div class="form-group">
+                    <input [class.is-invalid]="settingsForm.get('url').invalid" formControlName="url"
+                        type="text" [(ngModel)]="user.url" class="form-control form-control-lg" placeholder="URL of profile photo">
+                    <div id="label1" *ngIf="settingsForm.get('url').invalid">
+                    </div>
+                </div>
+                <div class="form-group">
+                        <input
+                            [class.is-invalid]="settingsForm.get('username').invalid && settingsForm.get('username').touched"
+                            formControlName="username" type="text" [(ngModel)]="user.username" class="form-control form-control-lg"
+                            placeholder="User Name" id="username" disabled>
+                        <div id="label1"
+                            *ngIf="settingsForm.get('username').invalid && settingsForm.get('username').touched">
+                            <small *ngIf="settingsForm.get('username').errors?.minlength" class="text-danger">Minimum 3
+                                character
+                                required</small>
+                            <small *ngIf="settingsForm.get('username').errors?.required" class="text-danger">Name is
+                                required</small>
+                            <small *ngIf="settingsForm.get('username').errors?.forbiddenName"
+                                class="text-danger">{{userName.errors?.forbiddenName.value}}
+                                userName not allowed</small>
+                        </div>
+                    </div>
+     
+               
+                <div class="form-group">
+                        <textarea id="bio"  [class.is-invalid]="settingsForm.get('bio').invalid && settingsForm.get('bio').touched"
+                          formControlName="bio" type="text" [(ngModel)]="user.bio" class="form-control form-control-lg" placeholder="Write about yourself" ></textarea>
+                        </div>
+
+               
+ 
+                <div class="form-group">
+                    <input [class.is-invalid]="settingsForm.get('email').invalid && settingsForm.get('email').touched"
+                        formControlName="email" id="email" type="email" [(ngModel)]="user.email" class="form-control form-control-lg" placeholder="Email" disabled>
+                    <div id="label1" *ngIf="settingsForm.get('email').invalid && settingsForm.get('email').touched">
+                        <small *ngIf="settingsForm.get('email').errors?.required" class="text-danger">Email is
+                            required</small>
+                        <small *ngIf="settingsForm.get('email').errors?.email" class="text-danger">Email must be a
+                            valid email
+                            address</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <input
+                        [class.is-invalid]="settingsForm.get('password').invalid && settingsForm.get('password').touched"
+                        formControlName="password" type="password" id="password" class="form-control form-control-lg"
+                        placeholder="Confirm Password">
+                    <div id="label1"
+                        *ngIf="settingsForm.get('password').invalid && settingsForm.get('password').touched">
+                        <small *ngIf="settingsForm.get('password').errors?.required" class="text-danger">Password is
+                            required</small>
+                        <small *ngIf="settingsForm.get('password').errors?.minlength" class="text-danger">Minimum 8
+                            character
+                            required</small>
+                    </div>
+                </div>
+
+                <button class="btn btn-lg btn btn-success" type="submit" [disabled]="!settingsForm.valid"
+                    id="button1">Update Settings</button>
+            </form>
+            
+        </div>
+
+        
+
+       
+
+    </main>
+</div>

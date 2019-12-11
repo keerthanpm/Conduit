@@ -1,0 +1,65 @@
+
+<div class="container-fluid">
+    <main>
+    <form [formGroup]="registrationForm" (ngSubmit)="onRegister(registrationForm.value)">
+         <div class="form-group"> 
+        <input  
+        id="art1" [class.is-invalid]="registrationForm.get('articleTittle').invalid && registrationForm.get('articleTittle').touched"
+          formControlName="articleTittle" type="text" class="form-control form-control-lg"  placeholder="Article Title" >
+        <div id="label1" *ngIf="registrationForm.get('articleTittle').invalid && registrationForm.get('articleTittle').touched">
+          <small *ngIf="registrationForm.get('articleTittle').errors?.required" class="text-danger">Article title is required</small>
+         
+        </div>
+      </div>  
+     
+      <div class="form-group" >
+       
+        <router-outlet></router-outlet>
+      </div>
+
+      <!-- <div class="form-group">
+        <input 
+        id="art2" [class.is-invalid]="registrationForm.get('image').invalid && registrationForm.get('image').touched"
+          formControlName="image" type="text" class="form-control" placeholder="Attachment URL" value="" >
+        <div id="label1" *ngIf="registrationForm.get('articleAbout').invalid && registrationForm.get('articleAbout').touched">
+          <small *ngIf="registrationForm.get('articleAbout').errors?.required" class="text-danger">article about is required</small>
+          <small *ngIf="registrationForm.get('articleAbout').errors?.minlength" class="text-danger">Minimum 3 character
+            required</small>
+        </div>
+        
+      </div> -->
+      <div class="form-group">
+        <input 
+        id="art2"
+          formControlName="image" type="text" class="form-control" placeholder="Attachment URL" value="" >
+          <div id="label1" *ngIf="registrationForm.get('image').invalid && registrationForm.get('image').touched">
+              <small *ngIf="registrationForm.get('image').errors?.pattern" class="text-danger">Enter a valid URL</small>
+            </div>
+        <!-- <div id="label1">
+          <small class="text-danger">article about is required</small>
+
+        </div> -->
+        
+      </div>
+      
+
+      <div class="form-group">
+        <input id="art3"
+         [class.is-invalid]="registrationForm.get('tags').invalid && registrationForm.get('tags').touched"
+          formControlName="tags" type="text" class="form-control form-control-lg" placeholder="Enter tags" >
+        <div id="label1" *ngIf="registrationForm.get('tags').invalid && registrationForm.get('tags').touched">
+          <small *ngIf="registrationForm.get('tags').errors?.required" class="text-danger">Tag is required</small>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+       
+        <router-outlet></router-outlet>
+      </div> -->
+      <div>
+        <button class="btn btn-lg btn btn-success" type="submit" [disabled]="!registrationForm.valid" id="button1" >Publish Article</button>
+      </div>
+       
+    </form>
+    
+  </main>
+</div>

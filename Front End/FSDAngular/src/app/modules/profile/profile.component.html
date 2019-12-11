@@ -1,0 +1,25 @@
+<div class="jumbotron ">
+    <div class="profile">
+        <div class="article-meta">
+
+            <img src="{{user.url}}" onerror="this.src='assets/images/smiley-cyrus.jpg'">
+
+
+            <div class="info">
+                <p id="userName"> {{user.username}} </p>
+                <p id="bio"> {{user.bio}} <br>
+                    
+                
+            </div>
+        </div>
+</div>
+</div>
+
+<div class="feed">
+  
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+
